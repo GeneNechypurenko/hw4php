@@ -23,7 +23,7 @@
             $lastVoteTime = isset($_COOKIE['last_vote']) ? $_COOKIE['last_vote'] : 0;
             $currentTime = time();
 
-            $timeRemaining = 60 - ($currentTime - $lastVoteTime);  // Остаток времени
+            $timeRemaining = 60 - ($currentTime - $lastVoteTime);
 
             if ($timeRemaining > 0) {
                 echo "<div class='alert alert-danger mt-3'>Вы уже голосовали! Следуещее голосование возможно через $timeRemaining секунд.</div>";
