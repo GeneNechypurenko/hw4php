@@ -28,11 +28,9 @@
             if ($timeRemaining > 0) {
                 echo "<div class='alert alert-danger mt-3'>Вы уже голосовали! Следуещее голосование возможно через $timeRemaining секунд.</div>";
             } else {
-                // Запись голоса в файл
                 $votes = json_decode(file_get_contents($votesFile), true);
                 $votes[array_search($selectedLanguage, $languages)]++;
                 file_put_contents($votesFile, json_encode($votes));
-
                 setcookie('last_vote', $currentTime, $currentTime + 60);
                 echo "<div class='alert alert-success mt-3'>Спасибо за ваш голос!</div>";
             }
